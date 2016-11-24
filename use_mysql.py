@@ -200,7 +200,8 @@ class UseMySQL():
             pass
         else:
             table = default_table
-        sql = "SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name='%s' " % (str(table))
+        # sql = "SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name='%s' " % (str(table))
+        sql = "SHOW COLUMNS FROM %s" % (str(table))
         try:
             self.cursor.execute(sql)
             structure = self.cursor.fetchall()
